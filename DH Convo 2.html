@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donghyuck</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <link rel="script" href="TrackingSystem.js">
+</head>
+<body>
+<h1>Donghyuck</h1>
+<p>MC: Welcome back, Donghyuck. We have a few more questions for you.<br/>
+    DH: Do I have a choice?<br/>
+    <input type="button" class="button" onclick="Question1()" value="> How would you describe Mark?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> Did any of the other four suspects look suspicious recently?"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> For close friends, Yangyang doesn’t seem to think too fondly of you. Why?"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    sessionStorage.setItem("DHConvo2", "Read");
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: *sighs* What’s more to say about him? He’s a prick with a galactic–sized chip on his " +
+            "shoulder! The asshole thinks he’s all that just because he’s rich and happened to be in the right place at the right time!<br/>" +
+            "MC: What do you mean by ‘being at the right place at the right time’?<br/>" +
+            "DH: He got an internship for SM entertainment making music for idols because he chanced on a wedding once, " +
+            "but even that came from his dad. Some people need to work for their dreams, and others like Mark Lee gets " +
+            "it handed to them on a silver platter.";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: Nana’s been acting a little more closed off than usual, but he gets like that whenever " +
+            "he’s stressed, and he's the lead for the upcoming senior play. As for Renjun and Jeno, I don’t know anything about them.<br/>" +
+            "MC: What about Yangyang?<br/>" +
+            "DH: He’s normal too.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: *hesitating* I don’t know what makes you think that.<br/>" +
+            "MC: Do you normally raid school kitchens with him?<br/>" +
+            "DH: *his shoulders tense up, a guarded expression taking over his face* Well… this is our first time doing it, but we’ve talked about it before.<br/>" +
+            "MC: Why that day, of all days?<br/>" +
+            "DH: *pausing* We were trying to fix up our rough patch. You know, before we hit senior year.<br/>";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: *hesitating* That’s none of your business, detective. Friends fight.";
+        document.body.appendChild(answer);
+    }
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: No, not at all. What are you suggesting, that I’d doubt the people who have had my back since forever?<br/>" +
+            "MC: No, we were just curious.<br/>" +
+            "DH: You’re trying to solve a murder, detective, not write a drama. Get out of my business. *End of the Conversation*";
+        document.body.appendChild(answer);
+    }
+    function Question6() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: *hesitates* There’s a lot of people in the world. I want to know about them.<br/>" +
+            "MC: Have you seen any symptoms in any of your close friends then?<br/>" +
+            "DH: …Not particularly.<br/>";
+        document.body.appendChild(answer);
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            let nextPart = document.createElement("P");
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> What happened between you and Yangyang?"><br/>' +
+                '<input type="button" class="button" onclick="Question5()" value="> Have you ever had an instance when you have suspected your friends of anything?"><br/>' +
+                '<input type="button" class="button" onclick="Question6()" value="> You seem to have an interest in psychologically damaged characters in books.">' +
+                'Does any of that carry over to your normal life?<br/>' +
+                '<br/><a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>

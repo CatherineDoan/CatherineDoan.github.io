@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donghyuck</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <link rel="script" href="TrackingSystem.js">
+</head>
+<body>
+<h1>Donghyuck</h1>
+<p>DH: *sigh* What more do you want? *his eyes are wavering, less sharp and alert. Evidently, something has happened*<br/>
+    MC: This is the last time we need to talk to you for this case.<br/>
+    DH: Can we get this over with?<br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    sessionStorage.setItem("DHConvo3", "Read");
+
+    let questions = document.createElement("P");
+    questions.innerHTML = `<input type="button" class="button" onclick="Question1()" value="> Apart from the rumour incident, what was your relationship with Mark like?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> You were close to Mark prior to this year, so surely you’ve seen or heard something?"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> Losing two friends isn’t easy, is it. But this isn’t your first time, is it Donghyuck?"><br/>`;
+    document.body.appendChild(questions);
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: *pausing for a long silence* We were making up. Casual acquaintances, maybe? Doesn’t matter. What do you mean?<br/>" +
+            "MC: I think you know exactly I mean.<br/>" +
+            "DH: ...";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: I didn’t hear or see anything. We… were just trying to be civil. That’s all. *He sounds sad, almost unsure of himself*<br/>" +
+            "MC: Civil?<br/>" +
+            "DH: ...";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: Stop trying to counsel me.<br/>" +
+            "MC: Tell us the whole truth.<br/>" +
+            "DH: ...";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true || QuestionTwo === true || QuestionThree === true) {
+            let nextPart = document.createElement("P");
+            nextPart.innerHTML = 'MC: Donghyuck?<br/>' +
+                'DH: *sighing* Yangie’s been weird for about two months now, but he refuses to tell me what’s wrong. ' +
+                'I… I’m a little bit on the insensitive side and I… didn’t consider his side of the coin when I kept ' +
+                'complaining about Mark. I… I think they broke up because I couldn’t fully support him and I just—I ' +
+                'wanted to make it up. That’s why we were out that morning. But when we talked, that wasn’t it at all. ' +
+                'Yangie insists so, but he just looked so damn sad and guilty I just… *chokes*<br/>' +
+                'MC: What happened?<br/> DH: I confronted him yesterday. I asked him if he killed Mark, or helped in it.' +
+                ' Now he refuses to talk to me and I-I…<br/> *he takes a deep breath* <br/> DH: And then there’s Nana, ' +
+                'who told me the truth last night and I… I just fucking ran away on him like a coward. I made Mark’s ' +
+                'life at school absolute hell for months, all because I was too hot-headed and couldn’t bother to ' +
+                'listen to why Nana did it! And then…<br/> *he chokes again* <br/> MC: And then…?<br/> DH: *swallows ' +
+                'back his tears* Ask Renjun. He… called me last night. To tell me his theory. I’m basically responsible at this point.<br/>' +
+                'MC: What do you mean?<br/> DH: *shaking his head* Ask Renjun.<br/><br/>' +
+                '<b>*THIS SUSPECT IS NO LONGER AVAILABLE FOR QUESTIONING*</b><br/><br/><a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+            document.body.removeChild(questions);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jaemin</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <link rel="script" href="TrackingSystem.js">
+</head>
+<body>
+<h1>Jaemin</h1>
+<p>MC: Welcome back, Jaemin. We have a few more questions for you.<br/>
+    JM: Whatever you say, detective.<br/>
+    <input type="button" class="button" onclick="Question1()" value="> How would you describe Mark?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> We found a piece of Chewing Gum that has your DNA at the scene of the murder."><br/>
+    <input type="button" class="button" onclick="Question3()" value="> Did any of the other four suspects look suspicious recently?"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    let nextPart = document.createElement("P");
+    sessionStorage.setItem("JMConvo2", "Read");
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: Maybe not the best guy to hang around for an extended period of time, but he’s still one" +
+            " of the most talented guys I’ve ever met. I’ll give him the credit of being ridiculously dedicated.<br/>" +
+            "MC: I thought you two don’t talk?<br/>" +
+            "JM: I still hear the stuff he makes on the radio. Have you heard of NCT 127’s new song Kick It? He made that one, and it’s really good.";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: I probably stuck it there bored in one class, what do you mean?";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: I can’t say much for Jeno and Renjun, but I know Yangie and Hyuck are completely normal.";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: *he pauses, hesitating* Mark started rumours about Hyuck sleeping with some seniors. As if Hyuckie would do something like that…<br/>" +
+            "MC: How can you be sure Mark did it?<br/>" +
+            "JM: *hesitating* Hyuck told me so.";
+        document.body.appendChild(answer);
+    }
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: *silent*<br/>" +
+            "MC: Additionally, why were you at school so early if you were dropping off costumes for an evening show?<br/>" +
+            "JM: *opens his mouth before closing it. Clearly, he’s realized he’s stuck*<br/>" +
+            "MC: Jaemin, did you participate in the murder of Mark Lee?<br/>" +
+            "JM: *voice trembling* I didn’t. I… did something else.<br/>" +
+            "MC: What did you do then, Jaemin?" +
+            "JM: I… *guilt is colouring his eyes* I just talked to him. I was just… I’m sorry. C-could you call me back " +
+            "another time? I promise I’ll tell you, I— I just… I need to tell Donghyuck it myself.<br/>" +
+            "MC: You can call him. You will be put in a holding cell for now. <br/> <a href=\"Menu.html\">End Interrogation</a>";
+        document.body.appendChild(answer);
+        document.body.removeChild(nextPart);
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> Do you know what happened between Mark and Donghyuck?"><br/>' +
+                '<input type="button" class="button" onclick="Question5()" value="> It wasn’t there before the cameras went dead, Jaemin."><br/>' +
+                '<br/><a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>

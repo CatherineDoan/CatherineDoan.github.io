@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jaemin</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <link rel="script" href="TrackingSystem.js">
+</head>
+<body>
+<h1>Jaemin</h1>
+<p>MC: Are you ready to talk now?<br/>
+    JM: Y-Yeah.<br/>
+    <input type="button" class="button" onclick="Question1()" value="> What did you do to Mark Lee?"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    let nextPart = document.createElement("P");
+    let choice = document.createElement("P");
+    sessionStorage.setItem("JMConvo3", "Read");
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: I didn’t do anything to him. A-at least not that day. I… I had—no, have a crush on " +
+            "Hyuckie, and Mark and him were getting friendlier and… you know– well you don’t know, but Hyuck had the " +
+            "biggest crush on Mark for ages and I just… I was so jealous I pretended to be Mark to spread rumours about " +
+            "Hyuck. It’s not fair. I know it’s not! But I couldn’t help myself. So I called Mark and I wanted to confess" +
+            " to him about it, so that’s that’s why I was there. I didn’t kill him, I swear! ";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck();
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: *voice shaking* Y-You can’t, I guess. I told him about it on Friday.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        Part2Check();
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JM: ...I haven’t talked to him since telling him about it. H-he just ran away on me and I— I" +
+            " can’t— *Jaemin breaks down, evidently in a fragile state*";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        Part2Check();
+    }
+
+    function Yes() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "MC: Did no one have knowledge of what you were doing?<br/>" +
+            "JM: Y-yeah… that’s true.<br/>" +
+            "MC: Could anyone have heard you set a meeting with him by chance?<br/>" +
+            "JM: I-I mean Yangie was nearby... but I don’t know i-if he heard…<br/>" +
+            "MC: Thank you, Jaemin. You’re free to go for now.<br/><br/>" +
+            "<b>THIS SUSPECT IS NO LONGER AVAILABLE FOR QUESTIONING</b><br/><br/>" +
+            "<a href=\"Menu.html\">End Interrogation</a>";
+        document.body.removeChild(nextPart);
+        document.body.removeChild(choice);
+        document.body.appendChild(answer);
+        sessionStorage.setItem("JMTrust", "Yes");
+    }
+    function No() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "MC: Jaemin, we can’t trust you. You’ll be placed in a holding cell until we have finished interrogations. We’re done here.<br/>" +
+            "JM: I… I’m so sorry… *sobbing* Please... Y-you have to believe me.<br/><br/>" +
+            "<b>THIS SUSPECT IS NO LONGER AVAILABLE FOR QUESTIONING</b><br/><br/>" +
+            "<a href=\"Menu.html\">End Interrogation</a>";
+        document.body.removeChild(nextPart);
+        document.body.removeChild(choice);
+        document.body.appendChild(answer);
+        sessionStorage.setItem("JMTrust", "No");
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true) {
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question2()" value="> How can we trust you?"><br/>' +
+                '<input type="button" class="button" onclick="Question3()" value="> And how did Donghyuck react to this news of yours?"><br/>';
+            document.body.appendChild(nextPart);
+        }
+    }
+    function Part2Check() {
+        if (QuestionTwo === true && QuestionThree === true) {
+            choice.innerHTML = 'Do you trust him?<br/>' +
+                '<input type="button" class="button" onclick="Yes()" value="Yes"><br/>' +
+                '<input type="button" class="button" onclick="No()" value="No">';
+            document.body.appendChild(choice);
+        }
+    }
+</script>
+</body>
+</html>

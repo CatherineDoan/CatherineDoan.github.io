@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangyang</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <script src="TrackingSystem.js"></script>
+</head>
+<body>
+<h1>Yangyang</h1>
+<p>MC: Good morning, Yangyang.  I would like to start off this interrogation expressing my sympathy for your loss. I understand you were close to Mark?<br/>
+    YY: …Thank you, detective.<br/>
+    <input type="button" class="button" onclick="Question1()" value="> Could you tell us what your relationship was to Lee Mark?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> Where were you and what were you doing from 6 to 7 AM on Monday, May 25th?"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> When did you last see Mark?"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    sessionStorage.setItem("YYConvo1", "Read");
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: Well… we used to date for a little while and we were friends before that, I guess.<br/>" +
+            "MC: What about after dating?<br/>" +
+            "YY: …I had some clases with him?";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: I was raiding the school cafeteria with Donghyuck.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: Last friday. We were talking about how terrible Mr. Hwang is for making a big project due the day of the showcase.";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: I’m pretty close with them. Renjun’s mom makes him go to Madarin club and so does mine, " +
+            "so we talk there. He’s a really nice guy. Nana’s the kind of best friend that I would take a bullet for, " +
+            "you get me? He was the first one to notice the lost little kid at the front of the school. Jeno’s one of " +
+            "those really innocent and pure guys. I like him a lot, but I haven’t talked to him much since the incident.<br/>" +
+            "MC: What incident?<br/>" +
+            "YY: Well… Mark and Donghyuck had an incident. I don’t know much about it, but you should ask Nana. He knew more about it.<br/>" +
+            "MC: What about Donghyuck?<br/>" +
+            "YY: What about him— Oh! My opinion. Right. Um. He’s a good friend, I guess?";
+        document.body.appendChild(answer);
+    }
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: Well… Honestly they’re all suspicious to some degree, right? Donghyuck and Nana have " +
+            "motives, to some degree, while Injunie and Jeno have disprovable alibis… I don’t know, really.";
+        document.body.appendChild(answer);
+    }
+    function Question6() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: Hmm… Normally I’d investigate those without much relation to the case, or the ones with " +
+            "less likely or obvious alibis. They’d never get away with it, so they’re less likely to do it.";
+        document.body.appendChild(answer);
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            let nextPart = document.createElement("P");
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> What are your opinions on the other suspects?"><br/>' +
+                '<input type="button" class="button" onclick="Question5()" value="> Who do you think we should suspect?"><br/>' +
+                '<input type="button" class="button" onclick="Question6()" value="> What’s your opinion on the whole case?"><br/>' +
+                '<br/><a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>

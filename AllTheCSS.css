@@ -1,0 +1,180 @@
+body {
+    background: rgba(66, 13, 9, 0.9);
+    font-family: 'Georgia', sans-serif;
+    margin: auto;
+    width: 800px;
+    font-size: 20px;
+    color: aliceblue;
+ }
+
+h1 {
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+    border-radius: 10px 10px 10px 10px;
+    background: rgb(185, 156, 107);
+    border: 5px solid black;
+    text-align: center;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+p {
+    border-radius: 10px 10px 10px 10px;
+    background: rgb(185, 156, 107);
+    border: 5px solid black;
+    padding: 15px;
+    text-align: left;
+    color: black;
+}
+
+a:link {
+    color: black;
+    text-decoration: none;
+}
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:active {
+    color: black;
+    text-decoration: none;
+}
+
+.button {
+    background: rgb(185, 156, 107);
+    font-family: 'Georgia', sans-serif;
+    border: 0;
+    font-size: 20px;
+}
+
+.button:hover {
+    background: black;
+    font-family: 'Georgia', sans-serif;
+    border: 0;
+    font-size: 20px;
+    color: rgb(185, 156, 107);
+}
+
+.Phone {
+    text-align: left;
+    color: black;
+    padding: 30px;
+    border-radius: 10px 10px 10px 10px;
+    border-left: 10px solid black;
+    border-right: 10px solid black;
+    border-top: 40px solid black;
+    border-bottom: 30px solid black;
+    background: #ECECEC;
+    box-shadow: 5px 10px 10px #808080;
+}
+
+.FileFolder {
+    text-align: left;
+    color: black;
+    padding: 20px;
+    background: #F8F5E1;
+    font-family: 'Courier', sans-serif;
+    box-shadow: 5px 10px 10px #808080;
+}
+
+.Selection {
+    display: grid;
+    width: 1300px;
+    margin-left: -250px;
+    color: black;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas:
+            "Interrogation Interrogation Interrogation Interrogation Interrogation"
+            "Donghyuck Jaemin Jeno Renjun Yangyang"
+            "Clues Clues Clues ClueIMG ClueIMG"
+            "End End End End End";
+}
+
+.Interrogation {
+    grid-area: Interrogation;
+    background: #F8F5E1;
+}
+
+.Clues {
+    margin: 20px;
+    grid-area: Clues;
+    text-align: center;
+    font-size: 70px;
+    line-height: 70px;
+    padding: 80px 50px 50px;
+    background: #F9E4B7;
+    box-shadow: 5px 10px 10px #808080;
+
+}
+
+.ClueIMG {
+    margin: 20px;
+    grid-area: ClueIMG;
+    text-align: center;
+    font-size: 70px;
+    padding: 15px;
+    background: #F9E4B7;
+    box-shadow: 5px 10px 10px #808080;
+}
+
+.Donghyuck {
+    background: #F8F5E1;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #808080;
+    font-family: 'Courier', sans-serif;
+    grid-area: Donghyuck;
+}
+
+.Jaemin {
+    background: #F8F5E1;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #808080;
+    font-family: 'Courier', sans-serif;
+    grid-area: Jaemin;
+}
+
+.Jeno {
+    background: #F8F5E1;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #808080;
+    font-family: 'Courier', sans-serif;
+    grid-area: Jeno;
+}
+
+.Renjun {
+    background: #F8F5E1;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #808080;
+    font-family: 'Courier', sans-serif;
+    grid-area: Renjun;
+}
+
+.Yangyang {
+    background: #F8F5E1;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #808080;
+    font-family: 'Courier', sans-serif;
+    grid-area: Yangyang;
+}
+
+.Reveal {
+    background: #F8F5E1;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #808080;
+    font-size: 50px;
+    text-align: center;
+    grid-area: End;
+}

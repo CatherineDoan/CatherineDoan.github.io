@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Renjun</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <script src="TrackingSystem.js"></script>
+</head>
+<body>
+<h1>Renjun</h1>
+<p>RJ: Do you have the right suspects in mind right now?<br/>
+    MC: That’s for me to know and for you to help confirm.<br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    sessionStorage.setItem("RJConvo3", "Read");
+
+    let nextPart = document.createElement("P"); // to remove later
+    let start = document.createElement("P");
+    start.innerHTML = '<input type="button" class="button" onclick="Question1()" value="> What do you mean?"><br/>' +
+        '<input type="button" class="button" onclick="Question2()" value="> Does he stay outside for longer than at home?"><br/>' +
+        '<input type="button" class="button" onclick="Question3()" value="> Would you classify Mark’s mood swings as normal?">';
+    document.body.appendChild(start);
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: …In some ways? He’d be rather closed-off and quiet when the going gets tough, but " +
+            "everyone’s like that, no? He’s more stressed than most too.";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: *hesitating* Well… Not directly.<br/>" +
+            "MC: What do you mean?<br/>" +
+            "RJ: They know of him. They see his symptoms and all, but he’s never talked to them.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: *hesitating* Well… I don’t know.";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Yes() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "*You turn off the machine, a soft click as the whirring of the recording device slows to a " +
+            "silent stop. Then, you look at Renjun, expectant*<br/>" +
+            "RJ: He killed himself.<br/>" +
+            "MC: Are you suggesting suicide? On what basis?<br/>" +
+            "RJ: *pursing his lips* Last saturday, I made him go to see a therapist. There’s a Chinese-Korean lady just " +
+            "down the street from Mark’s place who’s got a PhD and everything, and I’m pretty close to her. She talked " +
+            "with Mark for like, five minutes and almost diagnosed him immediately with depression and bipolarism. She " +
+            "wanted to talk about Mark’s parents about it, but he just kept refusing to. Something happened to him on " +
+            "Sunday night, I guess, and that morning he was just really listless and when he got to school…<br/>" +
+            "*Renjun chokes, holding back a sob as tears pool in his eyes*<br/>" +
+            "MC: …Is that all?<br/>" +
+            "RJ: *nods slightly*<br/>" +
+            "MC: Thank you, Renjun. Go get some rest now.<br/><br/>" +
+            "<b>THIS SUSPECT IS NO LONGER AVAILABLE FOR QUESTIONING</b><br/><br/>" +
+            "<a href=\"Menu.html\">End Interrogation</a>";
+        document.body.appendChild(answer);
+        document.body.removeChild(nextPart);
+        document.body.removeChild(start);
+    }
+    function No() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "*You do nothing, opting to engage in Renjun’s impromptu staring contest instead. Renjun breaks his gaze off first, sighing*<br/>" +
+            "RJ: I don’t know anything, detective.<br/>" +
+            "MC: Renjun, withholding information will only hurt you in the long run.<br/>" +
+            "RJ: I’m not withholding anything.<br/>" +
+            "MC: …<br/>" +
+            "RJ: …<br/>" +
+            "MC: *sigh* Have a nice day, Renjun. We’ll be contacting you later.<br/><br/>" +
+            "<b>THIS SUSPECT IS NO LONGER AVAILABLE FOR QUESTIONING</b><br/><br/>" +
+            "<a href=\"Menu.html\">End Interrogation</a>";
+        document.body.appendChild(answer);
+        document.body.removeChild(nextPart);
+        document.body.removeChild(start);
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            nextPart.innerHTML = 'MC: You’re holding back.<br/>' +
+                'RJ: I’m not. I’m answering to the best of my abilities. *as he says this, his eyes flicker to the ' +
+                'recording machine. You note he’s been doing so very frequently throughout the entire meeting*<br/>' +
+                'MC: And what can I do to help further your ability to answer?<br/>' +
+                'RJ: You’re a private investigator, right? *his eyes flicker to the corner of the room, quick wit ' +
+                'spotting the tiny camera hidden in the shadows. He’s sending you a message. Turn the machines off, and he’ll confess*<br/><br/>' +
+                'DO YOU TRUST HIM?<br/><br/>' +
+                '<input type="button" class="button" onclick="Yes()" value="> Turn off the recording machine."><br/>' +
+                '<input type="button" class="button" onclick="No()" value="> Do nothing."><br/>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>

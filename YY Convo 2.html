@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yangyang</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <script src="TrackingSystem.js"></script>
+</head>
+<body>
+<h1>Yangyang</h1>
+<p>MC: Welcome back, Yangyang. We have a few more questions for you.<br/>
+    YY: *sigh* I suppose you probably do.<br/>
+    <input type="button" class="button" onclick="Question1()" value="> How would you describe Mark?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> For someone who claims to be close to Donghyuck, you two don’t act like it. Why?"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> How do you think the cameras were disabled?"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    sessionStorage.setItem("YYConvo2", "Read");
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: He’s… misunderstood. He gets really bad with a lot of stress and pressure, but he’s one " +
+            "of the sweetest guys I’ve ever met. Never complains, never does something without apologizing, never " +
+            "intentionally makes someone’s life hell.<br/>" +
+            "MC: What about accidentally?<br/>" +
+            "YY: Then he’d fix it right up.";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: We… I had some problems and I didn’t want to tell him.<br/>" +
+            "MC: Don’t friends trust each other?<br/>" +
+            "YY: I don’t trust his judgement.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: From what I’ve heard, it doesn’t sound like a hack. They’d do it for much longer if it " +
+            "was a hack. An accident maybe?<br/>" +
+            "MC: You seem quite knowledgable on this kind of stuff.<br/>" +
+            "YY: *laughs* I like murder mysteries";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: A mix of curiosity and necessity, I guess.<br/>" +
+            "MC: Necessity?<br/>" +
+            "YY: This was the only music industry asian foreigners like me could make a decent living in, you know? Japan and China are terribly racist.<br/>" +
+            "MC: What do you mean by ‘was’?<br/>" +
+            "YY: …My parents want me to move back to Germany. If I don’t get a contract by the end of the year, I have to go back to Germany.";
+        document.body.appendChild(answer);
+    }
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: He’s… not the most sensitive guy. He’s also plenty hot-headed. Quick to judge others.";
+        document.body.appendChild(answer);
+    }
+    function Question6() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "YY: Mostly—no, entirely external factors.<br/>" +
+            "MC: Would you say you still love him?<br/>" +
+            "YY: …Yeah.<br/>" +
+            "MC: Did Donghyuck influence a part of the reason you broke with Mark?<br/>" +
+            "YY: …Yeah";
+        document.body.appendChild(answer);
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            let nextPart = document.createElement("P");
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> Why did you come all the way here from Germany?"><br/>\n' +
+                '<input type="button" class="button" onclick="Question5()" value="> Why don’t you seem to trust Donghyuck?"><br/>\n' +
+                '<input type="button" class="button" onclick="Question6()" value="> Why did you break up with Mark? Internal or external factors?"><br/>\n' +
+                '<br/><a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>
