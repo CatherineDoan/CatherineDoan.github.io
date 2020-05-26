@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donghyuck</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <link rel="script" href="TrackingSystem.js">
+</head>
+<body>
+<h1>Donghyuck</h1>
+<p>MC: Good morning, Donghyuck. I have a few questions for you.<br/>
+    DH: *visibly annoyed* Of course you do.<br/>
+    <input type="button" class="button" onclick="Question1()" value="> Could you tell us what your relationship was to Lee Mark?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> Where were you and what were you doing from 6 to 7 AM on Monday, May 25th?"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> When did you last see Mark?"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    sessionStorage.setItem("DHConvo1", "Read");
+
+    /* Answers */
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: Mortal enemies, but even I wouldn’t do something like this. He was an asshole, but he didn’t deserve to die.";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: Raiding the school cafeteria with Yangie. He had chocolate crepes for breakfast that day," +
+            " and I’m technically not supposed to get the boarder’s breakfast so we raided.<br/>" +
+            "MC: Did it taste good?<br/> DH: *nodding* The best.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: I don’t know, last week? I don’t find him in a crowd or something.";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: Renjun’s a really nice kid. I don’t think he deserves to put up with that asshole Mark. " +
+            "Jeno does for some goddamn reason, but he’s alright, I guess. Nana’s been my best friend since forever, " +
+            "ever since we were in diapers, and I go raiding school cafeterias with Yangie, so do I need to expand? " +
+            "I like him. For the most part.<br/> MC: For the most part?<br/> DH: He dated Mark for a while last fall, for some" +
+            " god awful reason. They broke up in December, after the whole thing between me and Mark happened.";
+        document.body.appendChild(answer);
+    }
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: Don’t hold me on it, but the murderers always turn out to be the close friends who you " +
+            "thought were on your side, no?<br/> MC: So you think it’s either Jeno or Renjun?<br/> DH: I’m not saying anything." +
+            " I’m just pointing out a likely chance. All the movies do it.<br/> MC: This isn’t a movie, Donghyuck.<br/>" +
+            "DH: Movies draw inspiration from real life nonetheless.";
+        document.body.appendChild(answer);
+    }
+    function Question6() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "DH: We weren’t on the best of terms, as he used to be a real piece of work back in primary " +
+            "school. It got better last year, but just this fall… *there’s a sad, faraway look in his eyes*<br/>" +
+            "MC: What happened this fall?<br/> DH: He started a rumour about me sleeping with some senior girls. As if I " +
+            "would do something like that! When I confronted him, he just said it wasn’t him when no one else could’ve done it!<br/>" +
+            "MC: How can you be so sure?<br/> DH: *getting angry* I know it.";
+        document.body.appendChild(answer);
+    }
+
+    /* Displaying the next section of the questions */
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            let nextPart = document.createElement("P");
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> What are your ' +
+                'opinions on the other suspects?"><br/>' +
+                '<input type="button" class="button" onclick="Question5()" value="> Who do you think we should suspect?"><br/>' +
+                '<input type="button" class="button" onclick="Question6()" value="> What happened between you and Mark?"><br/>' +
+                '<br/><a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+
+    console.log(sessionStorage.getItem("DHConvo1"));
+</script>
+</body>
+</html>

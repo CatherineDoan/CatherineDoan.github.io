@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <script src="TrackingSystem.js"></script>
+</head>
+<body>
+<h1>Suspect Name</h1>
+<p>Insert Conversation Text Here <br/>
+    <input type="button" class="button" onclick="Question1()" value="> Insert MC Questions here"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> Insert MC Questions here"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> Insert MC Questions here"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    /* sessionStorage.setItem("CharacterConvo1", "Read"); */
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "Insert Character Answer Here";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "Insert Character Answer Here";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "Insert Character Answer Here";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "Insert Character Answer Here";
+        document.body.appendChild(answer);
+    }
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "Insert Character Answer Here";
+        document.body.appendChild(answer);
+    }
+    function Question6() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "Insert Character Answer Here";
+        document.body.appendChild(answer);
+    }
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            let nextPart = document.createElement("P");
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> Insert MC Questions here"><br/>\n' +
+                '<input type="button" class="button" onclick="Question5()" value="> Insert MC Questions here"><br/>\n' +
+                '<input type="button" class="button" onclick="Question6()" value="> Insert MC Questions here"><br/>\n' +
+                '<br/><a href="/Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>

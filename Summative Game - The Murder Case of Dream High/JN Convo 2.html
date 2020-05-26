@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jeno</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <script src="TrackingSystem.js"></script>
+</head>
+<body>
+<h1>Jeno</h1>
+<p>MC: Welcome back, Jeno. We have a few more questions for you.<br/>
+    JN: Okay.<br/>
+    <input type="button" class="button" onclick="Question1()" value="> How would you describe Mark?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> You were with Renjun the entire time, did you notice him acting strange in any way?"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> How are you paying off your tuition fees without scholarships? DAPA isn't cheap."><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+
+    /* To remove later */
+    let nextPart = document.createElement("P");
+    let questions = document.createElement("P");
+
+    sessionStorage.setItem("JNConvo2", "Read");
+
+    /* Answers */
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: He’s the sweetest guy you’ll ever meet. He has some really bad mood swings and is really" +
+            " harsh when he’s sensitive, but Mark is like an angel. I don’t know why anyone would hurt him.";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: No, not at all. He’s just as quiet as usual.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: Mark found me this job at a dance studio. The pay is really good.<br/>" +
+            "MC: Really? Enough to pay 30 million won a year?<br/>" +
+            "JN: *pauses, seemingly confused* Mostly?";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: He... stood up for me in front of some mean kids in the past. He doesn’t have many friends, with his big mood swing, so I stick with him.";
+        document.body.appendChild(answer);
+    }
+
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: *Nodding* Yes, I am.";
+        document.body.appendChild(answer);
+    }
+
+    function Question6() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: *pauses for a moment to think* No, not really. I mean, Donghyuck absolutely despises Mark, but that’s been going on since last fall.";
+        document.body.appendChild(answer);
+
+        questions.innerHTML = '<input type="button" class="button" onclick="Question6A()" value="> What happened last fall?"><br/>' +
+            '<input type="button" class="button" onclick="Question6B()" value="> Something that could motivate him to kill?">';
+        document.body.appendChild(questions);
+    }
+
+    /* Follow Up */
+
+    function Question6A() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: Well… Donghyuck thinks Mark was spreading rumours about him.<br/>" +
+            "MC: Rumours? About what?<br/>" +
+            "JN: About Hyuck sleeping with some senior girls, which isn’t too surprising to be honest.<br/>" +
+            "MC: What do you mean?<br/>" +
+            "JN: Donghyuck is exactly the type I’d expect to do so.<br/>" +
+            "MC: I assume you two don’t get along very well.<br/>" +
+            "JN: He accused Mark for nothing and now the whole school’s against Mark! Or, well, they were.<br/>" +
+            "MC: Did he?<br/>" +
+            "JN: *getting angry* Of course not! What kind of question is that? *Stands up and storms out*<br/>" +
+            "<a href=\"Menu.html\">End Interrogation</a>";
+        document.body.appendChild(answer);
+        document.body.removeChild(nextPart);
+        document.body.removeChild(questions);
+    }
+
+    function Question6B() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "JN: *widens his eyes* No! Hyuck won’t do something like that, even if they don’t get along. *Stands up and storms out*<br/>" +
+            "<a href=\"Menu.html\">End Interrogation</a>";
+        document.body.appendChild(answer);
+        document.body.removeChild(nextPart);
+        document.body.removeChild(questions);
+    }
+
+    /* Displaying the next section of the questions */
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> How did you and Mark become really close friends?"><br/>' +
+                '<input type="button" class="button" onclick="Question5()" value="> Are you on any kind of financial assistance?"><br/>' +
+                '<input type="button" class="button" onclick="Question6()" value="> Have you noticed any of the other three suspects acting strange lately?"><br/>' +
+                '<br/><a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>
