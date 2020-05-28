@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Choice</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <script src="TrackingSystem.js"></script>
+</head>
+<body>
+<h1>CHOOSE A SUSPECT</h1>
+<div class ="FileFolder" id="ChoiceMenu">
+    <h3>
+    <a href="EndCard.html">> It was Donghyuck</a><br/><br/>
+    <a href="EndCard.html">> It was Renjun</a><br/><br/>
+    <a href="EndCard.html">> It was Yangyang</a><br/>
+    </h3>
+</div>
+<script>
+
+    /* choices from before can affect whether you can choose */
+
+    if (JNJail === "Yes") {
+        let JNJail = document.createElement("H3");
+        JNJail.innerHTML = '<a href="EndCard.html">> It was Jeno</a><br/>';
+        document.getElementById("ChoiceMenu").appendChild(JNJail);
+    }
+
+    if (JMTrust === "No") {
+        let JMTrust = document.createElement("H3");
+        JMTrust.innerHTML = '<a href="EndCard.html">> It was Jaemin</a>';
+        document.getElementById("ChoiceMenu").appendChild(JMTrust);
+    }
+</script>
+</body>
+</html>

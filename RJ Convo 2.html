@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Renjun</title>
+    <link rel="stylesheet" href="AllTheCSS.css">
+    <script src="TrackingSystem.js"></script>
+</head>
+<body>
+<h1>Renjun</h1>
+<p>MC: Welcome back. We have a few more questions for you.<br/>
+    RJ: I’ll try my best to help you.<br/>
+    <input type="button" class="button" onclick="Question1()" value="> We found a milk carton with your fingerprints on it. Did you give it to Mark?"><br/>
+    <input type="button" class="button" onclick="Question2()" value="> You claim you were with Jeno the entire time. Was he acting strange?"><br/>
+    <input type="button" class="button" onclick="Question3()" value="> How would you describe Mark Lee?"><br/>
+</p>
+<script>
+    let QuestionOne = false;
+    let QuestionTwo = false;
+    let QuestionThree = false;
+    sessionStorage.setItem("RJConvo2", "Read");
+
+    function Question1() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: Yeah? I was drinking it and Mark was staring at it so I gave it to him. What’s my " +
+            "morning beverage got to do with anything?<br/>" +
+            "MC: Nothing. We just wanted to verify in case the evidence was planted.";
+        document.body.appendChild(answer);
+        QuestionOne = true;
+        PartCheck()
+    }
+    function Question2() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: Other than a weird obsession with blasting the music? Not really. But he’s always having" +
+            " his earphones in for music and he’s very nervous for the showcase, so I don’t think it’s out of place.";
+        document.body.appendChild(answer);
+        QuestionTwo = true;
+        PartCheck()
+    }
+    function Question3() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: He’s a good friend of mine. He gets these really bad mood swings, and he’s very insecure" +
+            " overall, despite being one of the most talented guys I know. I don’t really know him well though. You should" +
+            " ask Jeno about him instead. He’s known Mark for longer.<br/>" +
+            "MC: Is Mark mentally ill, by chance?<br/>" +
+            "RJ: His parents don’t really believe in mental health and that stuff, so I think he’s never talked to a therapist to be diagnosed.";
+        document.body.appendChild(answer);
+        QuestionThree = true;
+        PartCheck()
+    }
+    function Question4() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: Well, his parents aren’t abusive or anything, they’re just… not very considerate.";
+        document.body.appendChild(answer);
+
+        let question = document.createElement("P");
+        question.innerHTML = '<input type="button" class="button" onclick="Question4A()" value="> What do you mean?"><br/>' +
+            '<input type="button" class="button" onclick="Question4B()" value="> Does he stay outside for longer than at home?"><br/>';
+        document.body.appendChild(question);
+    }
+    function Question5() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: It’s a song from his favourite idol group, NCT U. Boss, if memory serves.";
+        document.body.appendChild(answer);
+    }
+    function Question4A() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: There’s a lot of pressure on Mark, as the only child. Rich people are like that, you know? My mom does the same to my brother.<br/>" +
+            "MC: Do they fuel his insecurities?<br/>" +
+            "RJ: I think he does that himself, but his parents definitely add salt to the wound.";
+        document.body.appendChild(answer);
+    }
+    function Question4B() {
+        let answer = document.createElement("P");
+        answer.innerHTML = "RJ: Mark spent a lot of  time in the dorms when he was dating Yangyang. Nowadays, he just locks himself in the school studio.";
+        document.body.appendChild(answer);
+    }
+
+    /* Displaying the next section of the questions */
+
+    function PartCheck() {
+        if (QuestionOne === true && QuestionTwo === true && QuestionThree === true) {
+            let nextPart = document.createElement("P");
+            nextPart.innerHTML = '<input type="button" class="button" onclick="Question4()" value="> Is everything alright at home for Mark?"><br/>' +
+                '<input type="button" class="button" onclick="Question5()" value="> What song was Jeno playing on repeat?"><br/>' +
+                '<a href="Menu.html">End Interrogation</a>';
+            document.body.appendChild(nextPart);
+        }
+    }
+</script>
+</body>
+</html>
